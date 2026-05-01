@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koenigsegg Agera RS Tanıtım</title>
+    <style>
+        /* Genel Sayfa Ayarları */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212;
+            color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Başlık Bölümü (Hero Section) */
+        header {
+            text-align: center;
+            padding: 60px 20px;
+            background: linear-gradient(to bottom, #000000, #121212);
+            border-bottom: 2px solid #ff6600;
+        }
+
+        header h1 {
+            font-size: 3.5rem;
+            margin: 0;
+            letter-spacing: 4px;
+            color: #ffffff;
+            text-transform: uppercase;
+        }
+
+        header h1 span {
+            color: #ff6600; /* Agera RS'in ikonik turuncu detayı */
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #aaaaaa;
+            margin-top: 10px;
+            font-weight: 300;
+        }
+
+        /* İçerik Konteyneri */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        /* Etkileşimli Görsel Galerisi (Grid Yapısı) */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 25px;
+            margin-bottom: 60px;
+        }
+
+        .gallery-item {
+            background-color: #1a1a1a;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(255, 102, 0, 0.2);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            transition: opacity 0.3s ease;
+        }
+
+        /* Tıklanınca Açılan Bilgi Paneli */
+        .info-panel {
+            max-height: 0;
+            padding: 0 20px;
+            opacity: 0;
+            background-color: #1a1a1a;
+            transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out, opacity 0.5s ease-in-out;
+        }
+
+        .info-panel h3 {
+            color: #ff6600;
+            margin: 15px 0 5px 0;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        .info-panel p {
+            font-size: 0.95rem;
+            color: #cccccc;
+            line-height: 1.5;
+            margin-bottom: 15px;
+        }
+
+        /* JavaScript ile eklenecek 'active' sınıfı */
+        .gallery-item.active .info-panel {
+            max-height: 200px;
+            padding: 10px 20px;
+            opacity: 1;
+            border-top: 1px solid #333;
+        }
+
+        .gallery-item.active img {
+            opacity: 0.8;
+        }
+
+        /* Video Bölümü */
+        .video-section {
+            background-color: #1a1a1a;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
+            text-align: center;
+        }
+
+        .video-section h2 {
+            font-size: 2rem;
+            color: #ff6600;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Formatı */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Alt Bilgi */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #000;
+            color: #777;
+            font-size: 0.9rem;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Ana Başlık -->
+    <header>
+        <h1>Koenigsegg <span>Agera RS</span></h1>
+        <p>Hız, Estetik ve Mühendisliğin Kusursuz Birleşimi</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- Etkileşimli Görsel Galerisi -->
+        <section class="gallery">
+            <!-- 1. Görsel -->
+            <div class="gallery-item" onclick="toggleInfo(this)">
+                <img src="yan-profil.jpg" alt="Agera RS Yan Profil">
+                <div class="info-panel">
+                    <h3>Kusursuz Aerodinami</h3>
+                    <p>Gövdesi tamamen karbon fiber ve kevlar karışımıdır. 250 km/s hızda tam 450 kg yere basma kuvveti (downforce) üreterek adeta asfalta yapışır.</p>
+                </div>
+            </div>
+
+            <!-- 2. Görsel -->
+            <div class="gallery-item" onclick="toggleInfo(this)">
+                <img src="arka-tasarim.jpg" alt="Agera RS Arka Tasarım">
+                <div class="info-panel">
+                    <h3>Dünyanın En Hızlısı</h3>
+                    <p>Aktif arka kanat açısını hıza göre otomatik ayarlar. 2017'de Nevada'da ulaştığı 447.19 km/s hız ile uzun süre "dünyanın en hızlı üretim aracı" rekorunu elinde tuttu.</p>
+                </div>
+            </div>
+
+            <!-- 3. Görsel -->
+            <div class="gallery-item" onclick="toggleInfo(this)">
+                <img src="ic-mekan.jpg" alt="Agera RS İç Mekan">
+                <div class="info-panel">
+                    <h3>Savaş Uçağı Kokpiti</h3>
+                    <p>Sadece 70 kg ağırlığındaki şasi üzerine kurulan bu kokpitte, virajlarda 1.8 G kuvvetine maruz kalırsınız. Dijital göstergeler havacılıktan ilham alınarak tasarlanmıştır.</p>
+                </div>
+            </div>
+
+            <!-- 4. Görsel -->
+            <div class="gallery-item" onclick="toggleInfo(this)">
+                <img src="kapilar-acik.jpg" alt="Agera RS Kapılar Açık">
+                <div class="info-panel">
+                    <h3>Dihedral Senkro-Sarmal Kapılar</h3>
+                    <p>Koenigsegg'in patentli kapı mekanizması. Kapılar sadece yukarı kalkmaz, aynı anda ekseni etrafında dışarı doğru dönerek 90 derecelik muazzam bir açı oluşturur.</p>
+                </div>
+            </div>
+
+            <!-- 5. Görsel -->
+            <div class="gallery-item" onclick="toggleInfo(this)">
+                <img src="on-profil.jpg" alt="Agera RS Ön Profil">
+                <div class="info-panel">
+                    <h3>Bagajdaki Sürpriz</h3>
+                    <p>Bu kadar güçlü bir hiper otomobilin karbon fiber hardtop tavanı tamamen sökülebilir. İşin şaşırtıcı kısmı; bu tavan aracın ön bagajına milimetrik olarak sığacak şekilde tasarlanmıştır.</p>
+                </div>
+            </div>
+
+            <!-- 6. Görsel -->
+            <div class="gallery-item" onclick="toggleInfo(this)">
+                <img src="motor-detayi.jpg" alt="Agera RS Motor Detayı">
+                <div class="info-panel">
+                    <h3>1 Megawatt'lık Canavar</h3>
+                    <p>5.0 litrelik çift turbolu V8 motor, 1MW (1360 beygir) güç üretecek şekilde ayarlanmıştır. Araçta 1 kilogram ağırlığa neredeyse 1 beygir gücü düşer (1:1 oranı).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Video Bölmesi (Yerel Video İçin) -->
+        <section class="video-section">
+            <h2>Agera RS'i İş Başında İzleyin</h2>
+            <div class="video-container" style="border: none; padding-bottom: 0; height: auto;">
+                <video width="100%" controls style="border-radius: 10px;">
+                    <source src="agera-video.mp4" type="video/mp4">
+                    Tarayıcınız video etiketini desteklemiyor.
+                </video>
+            </div>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Koenigsegg Agera RS Fan Sayfası. Tüm hakları saklıdır.</p>
+    </footer>
+
+    <!-- Etkileşim için JavaScript Kodu -->
+    <script>
+        function toggleInfo(element) {
+            // Tıklanan görsele 'active' sınıfını ekler veya çıkarır
+            element.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
